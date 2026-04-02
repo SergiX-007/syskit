@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Pour démarrer syskit
+alias syskit='source ~/bashrc'
+
 # Navigation
 alias ..='cd ..'
 alias ...='cd ../..'
