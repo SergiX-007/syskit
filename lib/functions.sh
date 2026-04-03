@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# Affiche l'espace disque de tous les montages lisibles
+# ========================================================
+
+#   Affiche l'espace disque de tous les montages lisibles
+
+# ========================================================
 
 disk_usage()
 {
@@ -16,7 +20,11 @@ EOF
     df -h | sort -k5 -rn
 }
 
-# Affiche les N processus par consomation CPU
+# ========================================================
+
+#   Affiche les N processus par consomation CPU
+
+# ========================================================
 
 # Usage : top_processes [N]
 
@@ -35,7 +43,11 @@ EOF
     ps aux --sort=-%cpu | head -n $((n + 1))
 }
 
-# Cherche les fichiers > SIZE Mo dans DIR
+# ========================================================
+
+#   Cherche les fichiers > SIZE Mo dans DIR
+
+# ========================================================
 
 # Usage : find_large_files <dir> <size_mo>
 
@@ -50,4 +62,37 @@ find_large_files()
 EOF
 )"
     find "$dir" -type f -size +"${size}"M -exec ls -lh {} \;
+}
+
+# ========================================================
+
+#   POUR LA DÉSINSTALLATION DE SYSKIT
+
+# ========================================================
+
+# Usage : rmvSyskit
+
+rmvSyskit()
+{
+    clear
+    echo -e "$( cat << EOF
+
+                \033[031m === Désinstallation de syskit ===\033[0m
+
+            \033[037m Attention : cette action est irréversible\033[0m
+
+            \033[037m Veuillez confirmer la désinstallation (y/n) : \033[0m
+EOF
+)" && read -r REPLY 
+case "$REPLY" in
+    [Yy]* ) 
+        cp ~/syskit/save/save_bashrc.txt ~/.bashrc
+        rm -rf ~/syskit/
+        echo "Désinstallation terminée." 
+        source ~/.bashrc
+    
+    ;;
+    * ) echo "Désinstallation annulée." ; return ;;
+esac
+
 }
