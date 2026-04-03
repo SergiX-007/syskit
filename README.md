@@ -47,9 +47,11 @@ ___________________________________________
 
 ### Méthode rapide (recommandée)
 
-git clone https://github.com/<votre-login>/syskit.git
-cd syskit
-bash install.sh
+        [git clone https://github.com/syskit.git](https://github.com/SergiX-007/syskit.git)
+
+        cd syskit
+
+        bash install.sh
 
 #### Le script va :
 
@@ -69,7 +71,7 @@ ___________________________________________
 
 Utilisez la fonction : `rmvSyskit`
 
-#### Cette fonction va : 
+### Cette fonction va : 
 
 ##### Réinitialise le bashrc
     cp ~/syskit/save/save_bashrc.txt ~/.bashrc
@@ -78,7 +80,7 @@ Utilisez la fonction : `rmvSyskit`
     rm ~/syskit/
 
 ##### Recharger
-    `source ~/.bashrc`
+    source ~/.bashrc
 
 ## Utilisation
 ___________________________________________
