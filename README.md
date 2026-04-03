@@ -47,7 +47,7 @@ ___________________________________________
 
 ### Méthode rapide (recommandée)
 
-        [git clone https://github.com/syskit.git](https://github.com/SergiX-007/syskit.git)
+        git clone https://github.com/SergiX-007/syskit.git
 
         cd syskit
 
