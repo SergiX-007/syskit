@@ -40,7 +40,7 @@ ___________________________________________
 
 ### Vérification de Bash
 
-bash --version
+`bash --version`
 
 ##  Installation
 ___________________________________________
@@ -67,18 +67,18 @@ bash install.sh
 ## Désinstallation
 ___________________________________________
 
-Utilisez la fonction : rmvSyskit
+Utilisez la fonction : `rmvSyskit`
 
-Cette fonction va : 
+#### Cette fonction va : 
 
-### Réinitialise le bashrc
-cp ~/syskit/save/save_bashrc.txt ~/.bashrc
+##### Réinitialise le bashrc
+    `cp ~/syskit/save/save_bashrc.txt ~/.bashrc`
 
-### suppression de syskit
-rm ~/syskit/
+##### suppression de syskit
+    `rm ~/syskit/`
 
-### Recharger
-source ~/.bashrc
+##### Recharger
+    `source ~/.bashrc`
 
 ## Utilisation
 ___________________________________________
@@ -86,25 +86,25 @@ ___________________________________________
 ### Exemples concrets
 ===========================================
 #### Navigation rapide
-..                  # Remonte d'un dossier
-...                 # Remonte de deux dossiers
-ll                  # Liste détaillée colorée
-la                  # Liste tous les fichiers
+|`..`                  | Remonte d'un dossier     |
+|`...`                 | Remonte de deux dossiers |
+|`ll`                  | Liste détaillée colorée  |
+|`la`                  | Liste tous les fichiers  |
 
 #### Surveillance système
-meminfo             # État de la RAM
-cpuinfo             # Infos processeur
-ports               # Ports ouverts
-top_processes       # Top 10 processus CPU
-top_processes 5     # Top 5 processus CPU
+|`meminfo`            | État de la RAM          |
+|`cpuinfo`            | Infos processeur        |
+|`ports`              | Ports ouverts           |
+|`top_processes`      | Top 10 processus CPU    |
+|`top_processes 5`    | Top 5 processus CPU     |
 
 #### Gestion disque
-disk_usage          # Espace disque trié
-find_large_files    # Fichiers > 100 Mo dans dossier courant
-find_large_files /home 50  # Fichiers > 50 Mo dans /home
+|`disk_usage`                   | Espace disque trié                        |
+|`find_large_files`             | Fichiers > 100 Mo dans dossier courant    |
+|`find_large_files /home 50`    | Fichiers > 50 Mo dans /home               |
 
 #### Sécurité
-rm fichier          # Suppression avec confirmation
+|`rm fichier`          | Suppression avec confirmation|
 
 ### Exemples de sorties
 ===========================================
@@ -113,49 +113,59 @@ rm fichier          # Suppression avec confirmation
 
 === Utilisation disque ===
 
-Filesystem      Size  Used Avail Use% Mounted on
-/dev/sda1       100G   45G   55G  45% /
-/dev/sdb1       500G  200G  300G  40% /home
+|Filesystem      |Size|  Used| Avail| Use%| Mounted on  |
+|----------------|----|------|------|-----|-------------|
+|/dev/sda1       |100G|   45G|   55G|  45%| /           |
+|/dev/sdb1       |500G|  200G|  300G|  40%| /home       |
 
 #### top_processes :
 
 === Top 10 processus (CPU) ===
 
-USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-user      1234 12.5  5.2 123456 65432 ?        Ssl  10:00   1:23 firefox
-root      5678  8.3  1.2  45678 12345 ?        Ss   09:00   0:45 systemd
+|USER     |PID |%CPU |%MEM|    VSZ|   RSS| TTY|      STAT| START|   TIME |COMMAND|
+|---------|----|-----|----|-------|------|----|----------|-------|-------|-------|
+|user     |1234| 12.5| 5.2| 123456| 65432| ?  |      Ssl | 10:00 |  1:23 |firefox|
+|root     |5678|  8.3| 1.2|  45678| 12345| ?  |      Ss  | 09:00 |  0:45 |systemd|
 
 ## Structure du projet
 ___________________________________________
 
-syskit/
-├── install.sh              # Script d'installation principal
-├── README.md               # Documentation
-├── lib/
-│   ├── aliases.sh          # Définition des alias
-│   └── functions.sh        # Définition des fonctions
-└── save/                   # Créé automatiquement lors de l'installation
-    └── save_bashrc.txt     # Backup de votre .bashrc original
+syskit/  
+├── install.sh              # Script d'installation principal  
+├── README.md               # Documentation  
+├── lib/  
+│   ├── aliases.sh          # Définition des alias  
+│   └── functions.sh        # Définition des fonctions  
+└── save/                   # Créé automatiquement lors de l'installation  
+    └── save_bashrc.txt     # Backup de votre .bashrc original  
 
 ## Personnalisation
 ___________________________________________
 
-Ajouter vos propres alias
-Éditez ~/syskit/aliases.sh :
+        Ajouter vos propres alias
+
+        Éditez ~/syskit/aliases.sh :
 
 #### Exemple d'alias personnalisé
 
-alias monalias='ma_commande'
-alias gs='git status'
-alias gpl='git pull'
-Ajouter vos propres fonctions
-Éditez ~/syskit/functions.sh :
+        alias monalias='ma_commande'
+
+        alias gs='git status'
+
+        alias gpl='git pull'
+
+        Ajouter vos propres fonctions
+
+        Éditez ~/syskit/functions.sh :
 
 #### Exemple de fonction personnalisée
-maj()
-{
-    echo "Mise à jour du système..."
+maj()  
+{  
+    
+    echo "Mise à jour du système..."  
+
     sudo apt update && sudo apt upgrade -y
+
 }
 
 ##### Rechargez ensuite avec source ~/.bashrc ou syskit.
@@ -181,14 +191,14 @@ ASCII art final
 
 
 
-# ========================================================
-#                       AUTEUR
-# ========================================================
+# =============================
+# AUTEUR
+# =============================
 
 ### Harena Sergio
 
 ### GitHub: SergiX-007
 
-# ========================================================
+# =============================
 
-# ✨ SYSKIT - Simplifiez l'administration système avec Bash ✨
+# SYSKIT - Simplifiez l'administration système avec Bash
