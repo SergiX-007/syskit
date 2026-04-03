@@ -66,6 +66,84 @@ EOF
 
 # ========================================================
 
+# Affiche l'IP locale, la passerelle et les DNS
+
+# ========================================================
+
+
+net_info()
+{
+    clear
+    echo -e "$( cat << "EOF"
+
+        \033[032m === Informations réseau ===\033[0m
+
+
+    
+EOF
+)"
+    
+    # IP locale
+    echo -e "\033[036m◆ Adresse IP locale :\033[0m"
+    hostname -I 2>/dev/null | tr ' ' '\n' | grep -v '^$' | while read -r ip; do
+        echo "  └─ $ip"
+    done
+    
+    # Passerelle
+    echo -e "\n\033[036m◆ Passerelle par défaut :\033[0m"
+    route -n 2>/dev/null | grep '^0.0.0.0' | awk '{print "  └─ "$2}' || \
+    ip route | grep default | awk '{print "  └─ "$3}'
+    
+    # DNS
+    echo -e "\n\033[036m◆ Serveurs DNS :\033[0m"
+    cat /etc/resolv.conf 2>/dev/null | grep nameserver | awk '{print "  └─ "$2}'
+    
+    echo ""
+}
+# ========================================================
+
+#      Résumé système
+
+# ========================================================
+
+sys_summary()
+{
+    clear
+    echo -e "$( cat << "EOF"
+
+        \033[032m === Résumé système ===\033[0m
+
+
+    
+EOF
+)"
+    
+    # OS
+    echo -e "\033[036m◆ Système d'exploitation :\033[0m"
+    if [ -f /etc/os-release ]; then
+        . /etc/os-release
+        echo "  └─ $NAME $VERSION"
+    else
+        echo "  └─ $(uname -s) $(uname -r)"
+    fi
+    
+    # Kernel
+    echo -e "\n\033[036m◆ Noyau :\033[0m"
+    echo "  └─ $(uname -r)"
+    
+    # Uptime
+    echo -e "\n\033[036m◆ Uptime :\033[0m"
+    uptime | awk -F 'up ' '{print "  └─ " $2}' | awk -F ' users' '{print $1}'
+    
+    # RAM
+    echo -e "\n\033[036m◆ Mémoire RAM :\033[0m"
+    free -h | grep -E '^Mem:' | awk '{print "  └─ Total : "$2"  |  Utilisée : "$3"  |  Libre : "$4}'
+    
+    echo ""
+}
+
+# ========================================================
+
 #   POUR LA DÉSINSTALLATION DE SYSKIT
 
 # ========================================================

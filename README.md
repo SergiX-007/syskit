@@ -72,10 +72,10 @@ Utilisez la fonction : `rmvSyskit`
 #### Cette fonction va : 
 
 ##### Réinitialise le bashrc
-    `cp ~/syskit/save/save_bashrc.txt ~/.bashrc`
+    cp ~/syskit/save/save_bashrc.txt ~/.bashrc
 
 ##### suppression de syskit
-    `rm ~/syskit/`
+    rm ~/syskit/
 
 ##### Recharger
     `source ~/.bashrc`
@@ -86,12 +86,14 @@ ___________________________________________
 ### Exemples concrets
 ===========================================
 #### Navigation rapide
+|----------------------|--------------------------|
 |`..`                  | Remonte d'un dossier     |
 |`...`                 | Remonte de deux dossiers |
 |`ll`                  | Liste détaillée colorée  |
 |`la`                  | Liste tous les fichiers  |
 
 #### Surveillance système
+|---------------------|-------------------------|
 |`meminfo`            | État de la RAM          |
 |`cpuinfo`            | Infos processeur        |
 |`ports`              | Ports ouverts           |
@@ -99,11 +101,13 @@ ___________________________________________
 |`top_processes 5`    | Top 5 processus CPU     |
 
 #### Gestion disque
+|-------------------------------|-------------------------------------------|
 |`disk_usage`                   | Espace disque trié                        |
 |`find_large_files`             | Fichiers > 100 Mo dans dossier courant    |
 |`find_large_files /home 50`    | Fichiers > 50 Mo dans /home               |
 
 #### Sécurité
+|----------------------|------------------------------|
 |`rm fichier`          | Suppression avec confirmation|
 
 ### Exemples de sorties
@@ -161,7 +165,7 @@ ___________________________________________
 #### Exemple de fonction personnalisée
 maj()  
 {  
-    
+
     echo "Mise à jour du système..."  
 
     sudo apt update && sudo apt upgrade -y
@@ -191,14 +195,10 @@ ASCII art final
 
 
 
-# =============================
 # AUTEUR
-# =============================
 
 ### Harena Sergio
 
 ### GitHub: SergiX-007
 
-# =============================
-
-# SYSKIT - Simplifiez l'administration système avec Bash
+##### SYSKIT - Simplifiez l'administration système avec Bash
